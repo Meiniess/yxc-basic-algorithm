@@ -1,13 +1,15 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-
 int main()
 {
-    int x;
+    int a[100];
+    int x = 1, b = 2;
+    a[1] = 2;
+    a[2] = 1;
 
-    cin>>x;
-    cout<<x;
+    swap(a[x], a[b]);
+    while(1);
     return 0;
 }
