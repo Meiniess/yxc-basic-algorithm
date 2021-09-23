@@ -7,8 +7,8 @@ const int N = 1010;
 
 int n, m;
 int v[N], w[N];
-int f[N];
-//优化
+int f[N][N];
+//无优化
 int main()
 {
     cin >> n >> m;
@@ -16,11 +16,12 @@ int main()
     for (int i = 1; i <= n; i ++ ) cin >> v[i] >> w[i];
 
     for (int i = 1; i <= n; i ++ )
-    //倒着更新，先把最末尾的更新掉，再用最末尾的去更新前面的
-        for (int j = m; j >= v[i]; j -- )
-            f[j] = max(f[j], f[j - v[i]] + w[i]);
-
-    cout << f[m] << endl;
+        for (int j = 0; j <=m; j ++ )
+       {
+            f[i][j] = f[i-1][j];
+         if(j>=v[i]) f[i][j] = max(f[i][j], f[i-1][j - v[i]] + w[i]);
+       }
+    cout << f[n][m] << endl;
 
     return 0;
 }
