@@ -1,37 +1,40 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 struct Stack
-    {
-        char str[100];
-        int i;//入栈的编号
-    };
+{
+    char str[10010];
+    int i; //入栈的编号
+};
 int main()
 {
     int N;
     char c;
     Stack stack;
-    cin>>N;
+    cin >> N;
     getchar();
-    while(N)
+    while (N--)
     {
-        stack.i=-1;
-        while((c=getchar())!='\n')
+        string c;
+        stack.i = -1;
+        cin>>c;
+
+        for(int j=0;j<c.size();j++)
         {
-            if(c=='['||c=='(')
-                stack.str[++stack.i]=c;
-            else if((stack.str[stack.i]=='['&&c==']')||(stack.str[stack.i]=='('&&c==')'))
+            if (c[j] == '[' || c[j] == '(')
+                stack.str[++stack.i] = c[j];
+            else if ((stack.str[stack.i] == '[' && c[j] == ']') || (stack.str[stack.i] == '(' && c[j] == ')'))
                 stack.i--;
             else
-                {
-                    stack.i=0;
-                    break;
-                }
+            {
+                stack.i = 0;
+                break;
+            }
         }
-        if(stack.i==-1)
-        cout<<"Yes"<<endl;
+        if (stack.i == -1)
+            cout << "Yes" << endl;
         else
-        cout<<"No"<<endl;
-        N--;
+            cout << "No" << endl;
+        
     }
     return 0;
 }
