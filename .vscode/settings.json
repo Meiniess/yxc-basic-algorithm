@@ -2,6 +2,7 @@
     "files.associations": {
         "iostream": "cpp",
         "algorithm": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "unordered_map": "cpp"
     }
 }
