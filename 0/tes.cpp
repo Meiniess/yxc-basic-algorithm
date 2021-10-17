@@ -4,11 +4,14 @@
 using namespace std;
 const int N = 200003;
 int x,t ;
-int cal(int x)
+int cal(int a,int b)
 {
-    return t = (x % N + N) % N;
+    return (a%b+b)%b;
 }
 int main()
 {
-    cout<<cal(1000)<<' '<<cal(-1000);
+    cout<<cal(10,3)<<endl;
+    cout<<cal(-10,3)<<endl;
+    cout<<cal(10,-3)<<endl;
+    cout<<cal(-10,-3)<<endl;
 }
